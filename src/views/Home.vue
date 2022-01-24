@@ -1,18 +1,34 @@
+<!-- here we want to show a list of all user -->
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+<h1>Home</h1>
+<div class="users-list"> 
+<!-- we create a router link and with v-for we render the list of users (source data array!) from users.js-->
+      <router-link v-for="user in users" :to="{ name: 'UserProfile', params: { userId: user.id } }" :key="user.id">
+{{user.username}}
+  </router-link>
+</div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import { users} from "../assets/users";
 export default {
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
-};
+  name: 'Home',
+  setup() {
+    return {
+      users
+    }
+  }
+}
 </script>
+
+<style lang="scss">
+.home {
+  padding: 50px 5%;
+  .users-list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+</style>
