@@ -13,6 +13,7 @@
 
 <script>
 import { users} from "../assets/users";
+
 export default {
   name: 'Home',
   setup() {

@@ -31,7 +31,7 @@ import {reactive, computed } from 'vue'
 export default {
   name: "CreateTwootPanel",
  setup(props, ctx) {
-  const state = = reactive({
+  const state = reactive({
     newTwootContent: ``,
       selectedTwootType: `instant`,
       twootTypes: [
@@ -48,7 +48,7 @@ const newTwootCharacterCount = computed(()=> state.newTwootContent.length)
 // data works as a function
 function createNewTwoot() {
         if(state.newTwootContent && state.selectedTwootType !== `draft`){
-        ctx.emit('add Twoot', state.newTwootContent)
+        ctx.emit('add Twoot', state.newTwootContent);
         state.newTwootContent = ``;// after twoot a post the box is empty again
             }
         }

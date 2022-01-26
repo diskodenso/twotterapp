@@ -48,54 +48,53 @@ const userId = computed(()=>route.params.userId);// we get the userId for the ur
       // user [1] so it gets always the first one in the list when there is no user to match by id
     })
       function addTwoot(twoot){
-        state.user.twoots.unshift({id: state.user.twoots.length, content: twoot});
+        state.user.twoots.unshift({id: state.user.twoots.length +1, content: twoot});
       }
     // data works as a function
     return {
      state,
-      addTwoot
+      addTwoot,
+      userId
     }
   },
-  // watch watches a datapoint and when it changes you can run a function
-  // watch: {
-  //   followers(newFollowerCount, oldFollowerCount) {
-  //     if (oldFollowerCount < newFollowerCount) {
-  //       console.log(`${this.user.username} has gained a new Follower`);
-  
 };
 </script>
+<!--watch watches a datapoint and when it changes you can run a function
+watch: {
+followers(newFollowerCount, oldFollowerCount) {
+if (oldFollowerCount < newFollowerCount) {
+  console.log(`${this.user.username} has gained a new Follower`);
+  
 
 // Style = CSS // . = classes, # = iD
-// scoped wendet das styling nur bei den einzelnen html in der Kompente an
-<style lang="scss">
-
+// scoped wendet das styling nur bei den einzelnen html in der Kompente an-->
+<style lang="scss" scoped>
 .user-profile {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 50px;
   padding: 50px 5%;
-
-  .user-profile_user-panel {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid #dfe3e8;
   
-  h1 {
-  margin: 0;
-}
-
-  .user-profile_admin-badge {
-  background: rebeccapurple;
-  color: white;
-  border-radius: 5px;
-  margin-right: auto;
-  padding: 0 10px;
-  font-weight: bold;
+  .user-profile__user-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #DFE3E8;
+    margin-bottom: auto;
+    h1 {
+      margin: 0;
+    }
+    .user-profile__admin-badge {
+      background: rebeccapurple;
+      color: white;
+      border-radius: 5px;
+      margin-right: auto;
+      padding: 0 10px;
+      font-weight: bold;
+    }
   }
- }
   .user-profile__twoots-wrapper {
     display: grid;
     grid-gap: 10px;

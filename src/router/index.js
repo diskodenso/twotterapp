@@ -41,7 +41,7 @@ router.beforeEach(async (to, from, next) => {
     // dispatch is the function you call to run actions
     await store.dispatch(`User/setUser`, users[0])
   }
-  const isAdmin = true;
+  const isAdmin = false;
   const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
 
   if (requiresAdmin && !isAdmin) next({ name: `Home` });
