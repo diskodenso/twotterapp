@@ -39,6 +39,6 @@ export const users = [
     "lastName": "Burnham",
     "email": null,
     "isAdmin": false,
-    "twoots": [] // twoots should not be null - you want to fill the array so you should have a default property
+    "twoots": [] // twoots should not be null - you want to fill the array so you should have a default property and empty array to fill
   }
 ];
